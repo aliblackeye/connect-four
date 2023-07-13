@@ -1,0 +1,41 @@
+.btn {
+  border: 3px solid $black;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0px 6px 0px rgba(0, 0, 0, 1);
+  font-weight: 800;
+  font-size: 18px;
+  padding: 12px 10px;
+  min-width: 250px;
+  user-select: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  &-red {
+    background-color: $red;
+    color: $white;
+  }
+
+  &-yellow {
+    background-color: $yellow;
+  }
+
+  &-white {
+    background-color: $white;
+  }
+
+  transition: all 0.1s ease;
+
+  &-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &:active {
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
+    transform: translateY(4px);
+  }
+}

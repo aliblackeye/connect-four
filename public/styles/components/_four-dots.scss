@@ -1,0 +1,20 @@
+.four-dots {
+  display: grid;
+  column-gap: 2px;
+  row-gap: 1px;
+  width: min-content;
+  grid-template-columns: repeat(2, min-content);
+  .dot {
+    width: 20px;
+    height: 20px;
+    background-color: $red;
+    border-radius: 50%;
+    border: 3px solid $black;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 1);
+  }
+
+  .dot:nth-child(2),.dot:nth-child(3) {
+    background-color: $yellow;
+  }
+
+}
