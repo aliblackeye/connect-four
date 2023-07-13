@@ -1,0 +1,142 @@
+.game {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  gap: 40px;
+  .player-card {
+    width: 100px;
+    height: 120px;
+    background: $white;
+    color: $black;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 0 $black;
+    border: 3px solid $black;
+    h4 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 40px;
+      font-weight: bold;
+      line-height: 1;
+    }
+  }
+
+  .board {
+    border: 4px solid $black;
+    box-shadow: 0 4px 0 $black;
+    border-radius: 30px;
+    background-color: $white;
+    width: min-content;
+    padding: 10px;
+    padding-bottom: 30px;
+    position: relative;
+    .row {
+      display: flex;
+      .cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        margin: 5px;
+        background-color: $purple;
+        border: 3px solid $black;
+        box-shadow: inset 0 2px 0 0px $black;
+
+        &-empty {
+          cursor: pointer;
+          box-shadow: inset 0 8px 0 0px $black;
+        }
+
+        &-red {
+          background-color: $red;
+        }
+
+        &-yellow {
+          background-color: $yellow;
+        }
+      }
+    }
+
+    .turn {
+      width: 115px;
+      height: 80px;
+      font-size: 30px;
+      font-weight: bold;
+      border-radius: 18px;
+      box-shadow: 0 6px 0 $black;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 100%;
+      border: 3px solid $black;
+      transition: all 1s ease;
+      .player-name {
+        font-size: 12px;
+        text-transform: uppercase;
+        text-align: center;
+        margin-top: 10px;
+      }
+
+      &-changing {
+        transform: translateX(-50%) translateY(100px);
+        // yazı ters dönmeden rotate yapılır
+      }
+
+      &-you {
+        &::after {
+          border-bottom-color: $red !important;
+        }
+        background-color: $red;
+      }
+
+      &-opponent {
+        &::after {
+          border-bottom-color: $yellow !important;
+        }
+        background-color: $yellow;
+      }
+
+      &-waiting {
+        &::after {
+          border-bottom-color: $white !important;
+        }
+        background-color: $white;
+        color: $black;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 20px solid;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 46px solid transparent;
+        border-right: 46px solid transparent;
+        border-bottom: 23px solid $black;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
